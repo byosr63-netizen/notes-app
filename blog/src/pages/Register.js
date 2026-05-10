@@ -11,8 +11,7 @@ function Register() {
   const navigate = useNavigate();
 
   const register = async (e) => {
-    e.preventDefault(); // 🔥 important pour éviter refresh page
-
+    e.preventDefault(); 
     try {
       const res = await api.post("/register", {
         name,
@@ -22,7 +21,7 @@ function Register() {
 
       console.log("Register success:", res.data);
 
-      // redirection vers login
+     
       navigate("/login");
 
     } catch (err) {
@@ -37,7 +36,7 @@ function Register() {
 
   return (
     <div className="register">
-      <form onSubmit={register}> {/* 🔥 important */}
+      <form onSubmit={register}> {}
 
         <h2>Register</h2>
 

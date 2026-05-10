@@ -17,11 +17,9 @@ function Notes() {
   const [editId, setEditId] = useState(null);
 
   const [search, setSearch] = useState("");
-  const [error, setError] = useState(""); // 🔥 IMPORTANT
+  const [error, setError] = useState(""); 
 
-  // =========================
-  // GET NOTES
-  // =========================
+
   const fetchNotes = async () => {
     try {
       const res = await api.get("/notes");
@@ -39,9 +37,7 @@ function Notes() {
     }
   };
 
-  // =========================
-  // ADD NOTE
-  // =========================
+ 
   const addNote = async () => {
     if (!title.trim()) {
       setError("Le titre est obligatoire");
@@ -71,9 +67,7 @@ function Notes() {
     }
   };
 
-  // =========================
-  // DELETE NOTE
-  // =========================
+
   const deleteNote = async (id) => {
     if (!window.confirm("Supprimer cette note ?")) return;
 
@@ -114,9 +108,7 @@ function Notes() {
     }
   };
 
-  // =========================
-  // RESET FORM
-  // =========================
+ 
   const resetForm = () => {
     setTitle("");
     setContent("");
@@ -125,9 +117,7 @@ function Notes() {
     setError("");
   };
 
-  // =========================
-  // LOGOUT
-  // =========================
+  
   const logout = () => {
     localStorage.removeItem("token");
     navigate("/login");
@@ -141,9 +131,7 @@ function Notes() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // =========================
-  // SEARCH FILTER
-  // =========================
+  
   const filteredNotes = notes.filter((note) =>
     note.title.toLowerCase().includes(search.toLowerCase())
   );
@@ -159,7 +147,7 @@ function Notes() {
         </button>
       </div>
 
-      {/* 🔥 ERROR DISPLAY */}
+  
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <input

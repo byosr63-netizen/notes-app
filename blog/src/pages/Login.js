@@ -17,12 +17,10 @@ function Login() {
   password,
 });
 
-      // stocker le token
       localStorage.setItem("token", res.data.token);
 
       console.log("Login success:", res.data);
 
-      // redirection vers notes
       navigate("/notes");
 
     } catch (err) {
